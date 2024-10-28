@@ -1,0 +1,17 @@
+﻿<Application x:Class="Flow.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Flow"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         <ResourceDictionary>
+             <BitmapImage x:Key="blackSettings" UriSource="assets/three-circles-dark.png"></BitmapImage>
+             <BitmapImage x:Key="lightSettings" UriSource="assets/three-circles-light.png"></BitmapImage>
+             <BitmapImage x:Key="lightGrach" UriSource="assets/graph-light.png"></BitmapImage>
+             <ResourceDictionary.MergedDictionaries>
+                 <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
+             </ResourceDictionary.MergedDictionaries>
+         </ResourceDictionary>
+       
+    </Application.Resources>
+</Application>
