@@ -134,5 +134,8 @@
   <ItemGroup>
     <Resource Include="Flow.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\pause.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

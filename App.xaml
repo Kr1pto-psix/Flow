@@ -8,6 +8,17 @@
              <BitmapImage x:Key="blackSettings" UriSource="assets/three-circles-dark.png"></BitmapImage>
              <BitmapImage x:Key="lightSettings" UriSource="assets/three-circles-light.png"></BitmapImage>
              <BitmapImage x:Key="lightGrach" UriSource="assets/graph-light.png"></BitmapImage>
+             <BitmapImage x:Key="darkGrach" UriSource="assets/graph-black.png"></BitmapImage>
+             <BitmapImage x:Key="play" UriSource="assets/play.png"></BitmapImage>
+             <BitmapImage x:Key="lightCercleHalf" UriSource="assets/half-circle-light.png"></BitmapImage>
+             <BitmapImage x:Key="lightCercleEmpty" UriSource="assets/circle-light.png"></BitmapImage>
+             <BitmapImage x:Key="lightCercleFill" UriSource="assets/fill-circle-light.png"></BitmapImage>
+             <BitmapImage x:Key="darkCerleHalf" UriSource="assets/half-circle-dark.png"></BitmapImage>
+             <BitmapImage x:Key="darkCercle" UriSource="assets/circle-dark.png"></BitmapImage>
+             <BitmapImage x:Key="darkCercleFill" UriSource="assets/fill-circle-dark.png"></BitmapImage>
+             <BitmapImage x:Key="pause" UriSource="assets/pause.png"></BitmapImage>
+             <BitmapImage x:Key="backDark" UriSource="assets/back-dark.png"></BitmapImage>
+             <BitmapImage x:Key="backLight" UriSource="assets/back-light.png"></BitmapImage>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
              </ResourceDictionary.MergedDictionaries>
