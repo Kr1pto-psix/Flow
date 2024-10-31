@@ -37,7 +37,7 @@
             <Ellipse x:Name="desabledBtn1" Grid.Column="1" Fill="#444646" Margin="3,3,3,3" Stroke="#2d302f" />
             <Ellipse x:Name="desabledBtn2" Grid.Column="2" Fill="#444646" Margin="3,3,3,3" Stroke="#2d302f" />
 
-            <Button x:Name="backbtn" Grid.Column="4" Grid.RowSpan="2" Margin="0,4,0,5"
+            <Button x:Name="backbtn" Grid.Column="4" Grid.RowSpan="2" Margin="0,4,0,5" Click="Backbtn_OnClick"
                     Style="{DynamicResource defButton }">
                 <Image x:Name="backBtnImage" Source="back-dark.png" />
             </Button>
@@ -67,12 +67,12 @@
             </Canvas>
 
             <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="3"  HorizontalAlignment="Left" Grid.ColumnSpan="4"   >
-                <TextBlock x:Name="hourTimeBlok" Margin="24 0 0 10" Text="23" Foreground="White" FontFamily="Arial" FontSize="110" HorizontalAlignment="Center"  VerticalAlignment="Center"  />
+                <TextBlock x:Name="minTimeBlok" Margin="24 0 0 10" Text="23" Foreground="White" FontFamily="Arial" FontSize="110" HorizontalAlignment="Center"  VerticalAlignment="Center"  />
                 <Canvas Margin=" 10 27 10 0">
                     <Ellipse x:Name="separator1" Width="15" Height="15" Fill="White" Margin="0 47 0 10"/>
                     <Ellipse x:Name="separator2" Width="15" Height="15" Fill="White" Margin="0 0 0 0"/>
                 </Canvas>
-                <TextBlock x:Name="minTimeBlock" Margin="24 0 0 10" Text="23" Foreground="White" FontFamily="Arial" FontSize="110" HorizontalAlignment="Center"  VerticalAlignment="Center"  />
+                <TextBlock x:Name="secTimeBlock" Margin="24 0 0 10" Text="23" Foreground="White" FontFamily="Arial" FontSize="110" HorizontalAlignment="Center"  VerticalAlignment="Center"  />
             </StackPanel>
 
 
@@ -89,17 +89,82 @@
                     <Border Grid.RowSpan="9" Height="auto" Width="200" Background="Transparent">
                         <Border x:Name="popupBackground"  CornerRadius="5" Background="#CC282A2A">
                             <StackPanel  Margin="3 5 3 5 " >
-                                <Button   Height="30" Margin="5" Style="{StaticResource settingsButton}"  Content="About Flow"  ></Button>
+
+                                <Button   Height="30" Margin="5" Style="{StaticResource settingsButton}"  Content="About Flow" MouseEnter="clearPopups" Click="OpenAboutForm_Click" ></Button>
                                 <Rectangle Fill="#373b3a" Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Change Theme" Click="ChangeTheme"></Button>
-                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Hello world"></Button>
-                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Hello world"></Button>
-                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Hello world"></Button>
-                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Hello world"></Button>
-                                <Button Height="30" Margin="5"  Style="{StaticResource settingsButton}" Content="Hello world"></Button>
+
+
+
+                                <Button x:Name="flowDurBat" Height="30" Margin="5" Padding="5" Style="{StaticResource settingsButton}" MouseEnter="FlowDurBat_OnMouseEnter" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <!-- Для текста -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Для стрелки -->
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Flow Duration" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center"/>
+                                        <TextBlock Text=" >" VerticalAlignment="Center" Grid.Column="1" Margin="40,0,-54,0" />
+                                    </Grid>
+
+                                </Button>
+
+                                <Popup x:Name="flowPopup" Placement="Right" AllowsTransparency="True" PlacementTarget="{Binding ElementName=flowDurBat}" >
+                                    <Border Background="#CC282A2A" Width="150" Height="300" CornerRadius="10"></Border>
+                                </Popup>
+
+                                
+
+                                <Button x:Name="breakDurBat" Height="30" Margin="5" Style="{StaticResource settingsButton}"  
+                                        MouseEnter="BreakDurBat_OnMouseEnter">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <!-- Для текста -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Для стрелки -->
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Break Duration" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center"/>
+                                        <TextBlock Text=" >" VerticalAlignment="Center" Grid.Column="1" Margin="37,0,-54,0" />
+                                    </Grid>
+
+                                </Button>
+
+                                <Popup x:Name="breakPopup" Placement="Right" AllowsTransparency="True" PlacementTarget="{Binding ElementName=breakDurBat}" >
+                                    <Border Background="#CC282A2A" Width="150" Height="300" CornerRadius="10"></Border>
+                                </Popup>
+
 
                                 <Rectangle Fill="#373b3a" Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
-                                <Button Height="30" Margin="5" Content="Quit Flow" Click="quitSettingsButtonClick" Style="{StaticResource settingsButton}" ></Button>
+
+
+
+
+                                <Button x:Name="settingsBtnInPopup" Height="30" Margin="5" Style="{StaticResource settingsButton}" MouseEnter="SettingsBtnInPopup_OnMouseEnter" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <!-- Для текста -->
+                                            <ColumnDefinition Width="Auto" />
+                                            <!-- Для стрелки -->
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Text="Settings" VerticalAlignment="Center" Grid.Column="0" HorizontalAlignment="Center"/>
+                                        <TextBlock Text=" >" VerticalAlignment="Center" Grid.Column="1" Margin="69,0,-54,0" />
+                                    </Grid>
+                                </Button>
+
+                                <Popup x:Name="settingsPopup" Placement="Right" AllowsTransparency="True" PlacementTarget="{Binding ElementName=settingsBtnInPopup}" >
+                                    <Border Background="#CC282A2A" Width="150" Height="300" CornerRadius="10"></Border>
+                                </Popup>
+
+                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Block Apps..." MouseEnter="clearPopups"></Button>
+                                <Button Height="30" Margin="5"  Style="{StaticResource settingsButton}" Content="Block URL..." MouseEnter="clearPopups"></Button>
+                                <Button Height="30" Margin="5" Style="{StaticResource settingsButton}" Content="Change Theme" Click="ChangeTheme" MouseEnter="clearPopups"></Button>
+
+
+                                <Rectangle Fill="#373b3a" Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                                <Button Height="30" Margin="5" Content="Quit Flow" Click="quitSettingsButtonClick" Style="{StaticResource settingsButton}" MouseEnter="clearPopups" ></Button>
                             </StackPanel>
                         </Border>
                     </Border>

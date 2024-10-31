@@ -19,10 +19,12 @@
              <BitmapImage x:Key="pause" UriSource="assets/pause.png"></BitmapImage>
              <BitmapImage x:Key="backDark" UriSource="assets/back-dark.png"></BitmapImage>
              <BitmapImage x:Key="backLight" UriSource="assets/back-light.png"></BitmapImage>
+             <BitmapImage x:Key="logo" UriSource="assets/logo.png"></BitmapImage>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
              </ResourceDictionary.MergedDictionaries>
          </ResourceDictionary>
        
     </Application.Resources>
+    
 </Application>
